@@ -27,7 +27,6 @@ namespace TMSpart2
             foreach (int number in listOfNumbers)
             {
                 if (number >= 10) { Console.WriteLine(number); }
-
             }
         }
     }
