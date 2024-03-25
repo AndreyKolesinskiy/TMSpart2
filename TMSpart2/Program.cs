@@ -8,7 +8,8 @@ namespace TMSpart2
     {
         static void Main(string[] args)
         {
-            Exercise6();
+            // Console.WriteLine(ExercisesForLesson16.CountWords("It is a nice day but yesterday it rained all day."));
+            ExercisesForLesson16.PrintFizzBuzzNumbers(1, 100);
         }
 
         // 1. Извлечение положительных двузначных чисел из последовательности
