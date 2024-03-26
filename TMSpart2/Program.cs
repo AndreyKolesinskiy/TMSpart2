@@ -11,21 +11,18 @@ namespace TMSpart2
             Exercise6();
         }
 
-        // 1. Извлечение положительных двузначных чисел из последовательности
+        // 1. Extract pisitive two digit numbers from sequence
         static void Exercise1()
         {
             string initialString = "11, -21, 64, 59, 11, 0, -7, 53, -31, 1";
             string initialStringWithoutSpaces = initialString.Replace(" ", "");
-            List<int> listOfNumbers = initialStringWithoutSpaces.Split(',').Select(int.Parse).ToList();
+            List<int> listOfNumbers = initialString.Split(',').Select(n => n.Trim()).Select(int.Parse)
+                .Where(n => n >= 10 && n <= 99).OrderBy(n => n).ToList();
 
-            listOfNumbers.Sort();
-            foreach (int number in listOfNumbers)
-            {
-                if (number >= 10) { Console.WriteLine(number); }
-            }
+            foreach (int n in listOfNumbers) { Console.WriteLine(n); }
         }
 
-        // 2. Выборка чётных чисел из последовательности
+        // 2. Select even numbers from sequence
         static void Exercise2()
         {
             string initialString = "11, 23, 60, 57, 62, 17, 42, 34, 123";
@@ -41,14 +38,14 @@ namespace TMSpart2
             }
         }
 
-        // 3. Вывод слова в обратном порядке
+        // 3. Print name backwards
         static void Exercise3()
         {
             string initialString = "automation";
             Console.WriteLine(initialString.Reverse().ToArray());
         }
 
-        // 4. Изменение первой буквы в именах
+        // 4. Changing first letter in names
         static void Exercise4()
         {
             string initialString = "Alexa, Kirill, Jonas, Alina, Andrey, Danila, Nick, Amer, Chastity, Khristina, Amelia";
@@ -63,7 +60,7 @@ namespace TMSpart2
             foreach (string name in listOfNamesChanged) { Console.Write(name + " "); }
         }
 
-        // 5. Объединение списков имен и фильтрация по предпоследней букве
+        // 5. Unite list of names and filter by last letter
         static void Exercise5()
         {
             string initialString1 = "Igor, Vasya, Alex";
@@ -78,13 +75,12 @@ namespace TMSpart2
             }
         }
 
-        // 6. Сортировка имен по длине
+        // 6. Sort names by length
         static void Exercise6()
         {
             string initialString = "Brenda, Kristina, Anna, Nik, Hugo, Alice, Selena";
-            List<string> listOfNames = initialString.Replace(" ", "").Split(',').ToList();
-            var listOfNamesSorted = listOfNames.OrderBy(s => s.Length).ToList();
-            foreach (string s in listOfNamesSorted) { Console.WriteLine(s); }
+            List<string> listOfNames = initialString.Split(',').Select(n => n.Trim()).OrderBy(s => s.Length).ToList();
+            foreach (string s in listOfNames) { Console.WriteLine(s); }
         }
     }
 }
