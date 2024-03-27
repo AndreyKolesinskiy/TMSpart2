@@ -9,7 +9,7 @@ namespace TMSpart2
         {
             try
             {
-                var counter = sentence.Split(' ').Select(a => a.Trim()).ToArray().Where(x => x != "").Count();
+                var counter = sentence.Split(' ').Where(x=>x !="").Count();
                 return counter;
             }
             catch (Exception ex)
